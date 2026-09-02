@@ -1,7 +1,6 @@
-<?php 
+<?php
 
 require_once __DIR__ . '/../config/database.php';
-
 
 class Sonho
 {
@@ -13,6 +12,8 @@ class Sonho
     private ?string $interpretacao;
     private ?int $categoria_id;
     private ?int $humor_id;
+    private ?Categoria $categoria;
+    private ?Humor $humor;
 
     public function __construct(
         ?int $id = null,
@@ -32,6 +33,8 @@ class Sonho
         $this->interpretacao = $interpretacao;
         $this->categoria_id = $categoria_id;
         $this->humor_id = $humor_id;
+        $this->categoria = null;
+        $this->humor = null;
     }
 
     public function getId(): ?int
@@ -39,14 +42,21 @@ class Sonho
         return $this->id;
     }
 
+    public function setId(?int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
     public function getTitulo(): string
     {
         return $this->titulo;
     }
 
-    public function setTitulo(string $titulo): void
+    public function setTitulo(string $titulo): self
     {
         $this->titulo = $titulo;
+        return $this;
     }
 
     public function getDataSonho(): string
@@ -54,9 +64,10 @@ class Sonho
         return $this->data_sonho;
     }
 
-    public function setDataSonho(string $data_sonho): void
+    public function setDataSonho(string $data_sonho): self
     {
         $this->data_sonho = $data_sonho;
+        return $this;
     }
 
     public function getIntensidade(): ?int
@@ -64,9 +75,10 @@ class Sonho
         return $this->intensidade;
     }
 
-    public function setIntensidade(?int $intensidade): void
+    public function setIntensidade(?int $intensidade): self
     {
         $this->intensidade = $intensidade;
+        return $this;
     }
 
     public function getDescricao(): ?string
@@ -74,9 +86,10 @@ class Sonho
         return $this->descricao;
     }
 
-    public function setDescricao(?string $descricao): void
+    public function setDescricao(?string $descricao): self
     {
         $this->descricao = $descricao;
+        return $this;
     }
 
     public function getInterpretacao(): ?string
@@ -84,9 +97,10 @@ class Sonho
         return $this->interpretacao;
     }
 
-    public function setInterpretacao(?string $interpretacao): void
+    public function setInterpretacao(?string $interpretacao): self
     {
         $this->interpretacao = $interpretacao;
+        return $this;
     }
 
     public function getCategoriaId(): ?int
@@ -94,9 +108,10 @@ class Sonho
         return $this->categoria_id;
     }
 
-    public function setCategoriaId(?int $categoria_id): void
+    public function setCategoriaId(?int $categoria_id): self
     {
         $this->categoria_id = $categoria_id;
+        return $this;
     }
 
     public function getHumorId(): ?int
@@ -104,9 +119,31 @@ class Sonho
         return $this->humor_id;
     }
 
-    public function setHumorId(?int $humor_id): void
+    public function setHumorId(?int $humor_id): self
     {
         $this->humor_id = $humor_id;
+        return $this;
+    }
+
+    public function getCategoria(): ?Categoria
+    {
+        return $this->categoria;
+    }
+
+    public function setCategoria(?Categoria $categoria): self
+    {
+        $this->categoria = $categoria;
+        return $this;
+    }
+
+    public function getHumor(): ?Humor
+    {
+        return $this->humor;
+    }
+
+    public function setHumor(?Humor $humor): self
+    {
+        $this->humor = $humor;
+        return $this;
     }
 }
-
