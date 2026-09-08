@@ -25,3 +25,21 @@ CREATE TABLE sonhos (
     FOREIGN KEY (categoria_id) REFERENCES categorias(id),
     FOREIGN KEY (humor_id) REFERENCES humores(id)
 );
+
+
+INSERT INTO categorias (nome) VALUES 
+('Aventura'), 
+('Pesadelo'), 
+('Fantasia'), 
+('Cotidiano'), 
+('Surreal'), 
+('Sonho Lúcido');
+
+INSERT INTO humores (nome) VALUES 
+('Feliz'), 
+('Tranquilo'), 
+('Confuso'), 
+('Ansioso'), 
+('Assustado'), 
+('Melancólico'), 
+('Eufórico');
